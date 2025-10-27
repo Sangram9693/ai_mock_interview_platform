@@ -39,3 +39,5 @@ streamlit run src/Main.py
 ```bash
  Local URL: http://localhost:8501
 ```
+
+Asana [Link](https://app.asana.com/1/1211755169817868/project/1211755165871808/list/1211755180908816)
