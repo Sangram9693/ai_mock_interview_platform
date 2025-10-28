@@ -1,10 +1,29 @@
 import streamlit as st
 from elements.Button import Button
 from utils.NevigationUtil import nevigate_component
+from component_functions.upload_resume_jd.Utility import jd_conatiner, resume_conatiner
 
 def render(navigate):
-    st.title("Upload Page")
-    print(st.session_state.get("user")['name'])
+    with st.container():
+        jdCol, resumeCol = st.columns(2, vertical_alignment="center", width="stretch")
 
-    if Button("Start Interview"):
-        nevigate_component(navigate, "interview")
+        with jdCol:
+            jd_conatiner()
+
+        with resumeCol:
+            resume_conatiner()
+    
+    with st.container(horizontal=True, horizontal_alignment="right"):
+        job_details = st.session_state.get("job_details", {})
+        is_job_details_complete = all(
+            job_details.get(field, "").strip()
+            for field in ["job_title", "job_description", "resume_content"]
+        )
+
+        is_disable = not is_job_details_complete
+
+        if Button("Start Interview", disabled=is_disable):
+            nevigate_component(navigate, "interview")
+            
+
+        
