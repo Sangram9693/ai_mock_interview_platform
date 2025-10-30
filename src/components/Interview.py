@@ -8,19 +8,19 @@ from component_functions.interview_stopwtach_transcript.Utility import (
     transcript_conatiner,
     format_time,
 )
-from utils.StateManager import (
+from component_functions.interview_stopwtach_transcript.Utility import (
     init_session,
     update_elapsed_time,
     stop_interview,
     auto_navigate_if_stopped,
-)
 
+)
 st.set_page_config(layout="wide")
 
 
 def render(navigate):
     init_session()  # initialize all session vars
-
+    print(st.session_state.get("job_details"))
     with st.container():
         vaCol, endCol, transCol = st.columns(3, vertical_alignment="center", width="stretch")
 
