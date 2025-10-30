@@ -8,7 +8,7 @@ from component_functions.interview_stopwtach_transcript.Utility import (
     transcript_conatiner,
     format_time,
 )
-from component_functions.interview_stopwtach_transcript.session_manager import (
+from utils.StateManager import (
     init_session,
     update_elapsed_time,
     stop_interview,
@@ -31,7 +31,6 @@ def render(navigate):
 
         # Stopwatch + voice agent
         with vaCol:
-            st.markdown(f"### ⏰ {format_time(st.session_state.elapsed)}")
             voiceagent_conatiner()
 
         # End/Go Back section
@@ -39,6 +38,7 @@ def render(navigate):
             st.write("")
             left, center, right = st.columns([1, 2, 1])
             with center:
+                st.markdown(f"### ⏰ {format_time(st.session_state.elapsed)}")
                 if not st.session_state.stopped:
                     if st.button(INTERVIEW_END_BUTTON,use_container_width=True):
                         stop_interview()
