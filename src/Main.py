@@ -1,12 +1,7 @@
 import streamlit as st
 from elements.Button import Button
-from constants.StringConstant import TITLE
 from components.MainComponent import PAGES
 from utils.StateManager import init_state
-
-# # Initialize page state if not already set
-# if "page" not in st.session_state:
-#     st.session_state.page = "upload"   # default page
 
 init_state()
 
