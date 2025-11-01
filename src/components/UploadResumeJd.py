@@ -2,6 +2,7 @@ import streamlit as st
 from elements.Button import Button
 from utils.NevigationUtil import nevigate_component
 from component_functions.upload_resume_jd.Utility import jd_conatiner, resume_conatiner
+from llms.combine import generate_interview_questions
 
 def render(navigate):
     with st.container():
@@ -23,7 +24,9 @@ def render(navigate):
         is_disable = not is_job_details_complete
 
         if Button("Start Interview", disabled=is_disable):
-            nevigate_component(navigate, "interview")
+            # nevigate_component(navigate, "interview")
+            result = generate_interview_questions(st.session_state.get("job_details")["resume_content"])
+            print(result)
 
 
 
