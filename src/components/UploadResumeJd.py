@@ -24,7 +24,6 @@ def render(navigate):
 
         if Button("Start Interview", disabled=is_disable):
             nevigate_component(navigate, "interview")
-
-
+            
 
         
