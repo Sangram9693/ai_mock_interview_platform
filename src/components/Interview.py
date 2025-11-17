@@ -20,7 +20,7 @@ st.set_page_config(layout="wide")
 
 def render(navigate):
     init_session()  # initialize all session vars
-    print(st.session_state.get("job_details"))
+    print(st.session_state.get("interview_data"))
     with st.container():
         vaCol, endCol, transCol = st.columns(3, vertical_alignment="center", width="stretch")
 
