@@ -1,5 +1,3 @@
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import PromptTemplate
 from llms.get_llm import get_llm_client
 
 
@@ -110,13 +108,7 @@ Examples:
     }
 """
 
-def get_question(overview):
+def get_question(overview: str):
     llm = get_llm_client("openai", "gpt-4.1-nano")
-    questions=(
-        overview
-        | PromptTemplate.from_template(SYSTEM_PROMPT + "{overview}") 
-        | llm 
-        | StrOutputParser()
-    )
-
-    return questions
+    response = llm.invoke(SYSTEM_PROMPT + f" Input: {overview}")
+    return response.content
