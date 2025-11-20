@@ -12,7 +12,7 @@ Follow this JSON format strictly:
   "name": "string",
   "job_title": "string",
   "experience": number,
-  "skills": ["skill1", "skill2"],
+  "skills": ["skill1", "skill2"], 
   "job_description": "string"
 }
 
